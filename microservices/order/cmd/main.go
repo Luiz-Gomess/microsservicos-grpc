@@ -1,6 +1,13 @@
-package cmd
+package main
 
-import "log"
+import (
+	"log"
+
+	"github.com/Luiz-Gomess/microservices/order/config"
+	"github.com/Luiz-Gomess/microservices/order/internal/adapters/db"
+	"github.com/Luiz-Gomess/microservices/order/internal/adapters/grpc"
+	"github.com/Luiz-Gomess/microservices/order/internal/application/core/api"
+)
 
 func main() {
 	dbAdapter, err := db.NewAdapter(config.GetDataSourceURL())

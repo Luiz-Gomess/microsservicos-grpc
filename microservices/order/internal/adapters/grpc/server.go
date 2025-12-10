@@ -6,6 +6,7 @@ import (
 	"log"
 	"net"
 
+	"github.com/Luiz-Gomess/microservices-proto/golang/order"
 	"github.com/Luiz-Gomess/microservices/order/config"
 	"github.com/Luiz-Gomess/microservices/order/internal/application/core/domain"
 	"github.com/Luiz-Gomess/microservices/order/internal/ports"
@@ -23,7 +24,7 @@ func NewAdapter(api ports.APIPort, port int) *Adapter {
 	return &Adapter{api: api, port: port}
 }
 
-func (a Adapter) Create(ctx context.Context, request *order.CreateOrderRequest) (*order.CreateOrderResponse, error) {
+func (a Adapter) Create(ctx context.Context, request *order.CreateOrderRequest) (*order.CreateOrderReponse, error) {
 	var orderItems []domain.OrderItem
 	for _, item := range request.OrderItems {
 		orderItems = append(orderItems, domain.OrderItem{
@@ -37,7 +38,7 @@ func (a Adapter) Create(ctx context.Context, request *order.CreateOrderRequest) 
 	if err != nil {
 		return nil, err
 	}
-	return &order.CreateOrderResponse{OrderId: int32(result.ID)}, nil
+	return &order.CreateOrderReponse{OrderId: int32(result.ID)}, nil
 }
 
 func (a Adapter) Run() {
