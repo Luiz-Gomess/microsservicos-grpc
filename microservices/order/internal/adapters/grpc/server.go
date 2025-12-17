@@ -49,6 +49,7 @@ func (a Adapter) Run() {
 	}
 	grpcServer := grpc.NewServer()
 	order.RegisterOrderServer(grpcServer, a)
+
 	if config.GetEnv() == "development" {
 		reflection.Register(grpcServer)
 	}

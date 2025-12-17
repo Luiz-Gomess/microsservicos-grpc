@@ -7,6 +7,7 @@ require (
 	google.golang.org/grpc v1.77.0
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.30.0
+	github.com/Luiz-Gomess/microservices/payment v0.0.0-00010101000000-000000000000
 )
 
 require (
@@ -22,5 +23,6 @@ require (
 )
 
 replace github.com/Luiz-Gomess/microservices-proto/golang/order => ../../microservices-proto/golang/order
-
 replace github.com/Luiz-Gomess/microservices/order => /workspaces/microsservicos-grpc/microservices/order
+
+replace github.com/Luiz-Gomess/microservices/payment => /workspaces/microsservicos-grpc/microservices-proto/golang/payment
