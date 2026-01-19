@@ -64,6 +64,7 @@ func (a Adapter) Get(id string) (domain.Order, error) {
 	}
 	return order, res.Error
 }
+
 func (a Adapter) Save(order *domain.Order) error {
 	var orderItems []OrderItem
 	for _, orderItem := range order.OrderItems {
@@ -75,12 +76,14 @@ func (a Adapter) Save(order *domain.Order) error {
 	}
 
 	orderModel := Order{
+		Model:      gorm.Model{ID: uint(order.ID)}, 
 		CustomerID: order.CustomerID,
 		Status:     order.Status,
 		OrderItems: orderItems,
 	}
 
-	res := a.db.Create(&orderModel)
+	res := a.db.Save(&orderModel)
+	
 	if res.Error == nil {
 		order.ID = int64(orderModel.ID)
 	}
