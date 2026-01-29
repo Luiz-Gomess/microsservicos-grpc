@@ -29,3 +29,7 @@ func getEnvironmentValue(key string) string {
 func GetPaymentServiceURL() string {
 	return getEnvironmentValue("PAYMENT_SERVICE_URL")
 }
+
+func GetShippingServiceUrl() string {
+	return getEnvironmentValue("SHIPPING_SERVICE_URL")
+}

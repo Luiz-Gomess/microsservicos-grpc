@@ -14,6 +14,8 @@ type Order struct {
 	Status     string      `json: "status`
 	OrderItems []OrderItem `json: "order_items`
 	CreatedAt  int64       `json: "created_at`
+	DeliveryDays int64       `json:"delivery_days"`
+	
 }
 
 func NewOrder(customerId int64, orderItems []OrderItem) Order {

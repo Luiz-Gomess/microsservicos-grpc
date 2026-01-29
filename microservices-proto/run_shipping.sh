@@ -2,7 +2,7 @@
 
 GITHUB_USERNAME=Luiz-Gomess
 GITHUB_EMAIL=fernando.albuquerque@academico.ifpb.edu.br
-SERVICE_NAME=payment
+SERVICE_NAME=shipping
 RELEASE_VERSION=v1.2.3
 
 echo "--- Verificando e instalando dependências do sistema ---"
@@ -12,7 +12,6 @@ sudo apt-get install -y protobuf-compiler golang-go git
 echo "--- Instalando plugins Go (protoc-gen-go e protoc-gen-go-grpc) ---"
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 echo "--- Gerando código fonte Go ---"
@@ -35,4 +34,3 @@ ls -al ./golang/
 
 TARGET_DIR="golang/${SERVICE_NAME}"
 
-#
